@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - ADMIN</title>
+    <!-- Sử dụng Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <header class="bg-dark text-white text-center py-2">
+        <h1>ADMIN DASHBOARD</h1>
+    </header>
+
+    <!-- Menu điều hướng sử dụng Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sản Phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Liên Hệ</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="logout" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    </li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Danh sách sản phẩm -->
+            <div class="col-lg-9">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="card bg-primary text-white shadow-sm">
+                    <div class="card-body">
+                        <h5>Social Media</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-primary">
+                                <a href="#" class="text-white">Facebook</a>
+                            </li>
+                            <li class="list-group-item bg-primary">
+                                <a href="#" class="text-white">Twitter</a>
+                            </li>
+                            <li class="list-group-item bg-primary">
+                                <a href="#" class="text-white">Instagram</a>
+                            </li>
+                            <li class="list-group-item bg-primary">
+                                <a href="#" class="text-white">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Phần footer -->
+    <footer class="bg-dark text-white text-center py-0.5">
+        <p>&copy; 2024 YourCompany. All rights reserved.</p>
+    </footer>
+
+    <!-- Sử dụng Bootstrap JS và Popper.js -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Sử dụng Bootstrap JS và Popper.js (cần cài đặt trước khi sử dụng Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
